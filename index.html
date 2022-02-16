@@ -5,10 +5,129 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <title>BuzzQuizz</title>
 </head>
 
 <body>
+
+    <header>
+        <h1>BuzzQuizz</h1> 
+    </header>
+
+    <main class="main">
+        <!--Tela 3.1-->
+        <section class="tela_3-1">
+            <h2>Comece pelo começo</h2>
+            <article class="article_1_3-1">
+                <input type="text" placeholder="Título do seu quizz" maxlength="65" minlength="20">
+                <input type="url" placeholder="URL da imagem do seu quizz">
+                <input type="number" placeholder="Quantidade de perguntas do quizz">
+                <input type="number" placeholder="Quantidade de níveis do quizz">
+            </article>
+
+
+            <button onclick="MoveToQuestions ()">
+                <p>Prosseguir pra criar perguntas</p>
+            </button>
+        </section>
+
+
+        <!-- Tela 3.2-->
+        <section class="tela_3-2 hidden">
+            <h2>Crie suas perguntas</h2>
+
+            <div class="questions">
+                <article class="question_1">
+                    <h3>Pergunta 1</h3>
+                    <input type="text" placeholder="Texto da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Cor de fundo da pergunta" maxlength="65" minlength="20">
+
+                    <h3>Resposta correta</h3>
+                    <input type="text" placeholder="Resposta correta" maxlength="65" minlength="20">
+                    <input type="url" placeholder="URL da imagem" maxlength="65" minlength="20">
+
+                    <h3>Respostas incorretas</h3>
+                    <input type="text" placeholder="Texto da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Cor de fundo da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Texto da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Cor de fundo da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Texto da pergunta" maxlength="65" minlength="20">
+                    <input type="text" placeholder="Cor de fundo da pergunta">
+                </article>
+
+                <article class="question_2">
+                    <h3>Pergunta 2</h3>
+                    <img src="./imagens/Vector (1).svg" alt="icon">
+                </article>
+
+                <article class="question_2">
+                    <h3>Pergunta 3</h3>
+                    <img src="./imagens/Vector (1).svg" alt="icon">
+                </article>
+            </div>
+
+            <button onclick="MoveToLevels ()">
+                <p>Prosseguir pra criar níveis</p>
+            </button>
+        </section>
+
+        <!--Tela 3.3-->
+        <section class="tela_3-3 hidden">
+            <h2>Agora, decida os níveis!</h2>
+
+            <article class="level_1">
+                <h3>Nível 1</h3>
+                <input type="text" placeholder="Título do nível" maxlength="65" minlength="20">
+                <input type="text" placeholder="% de acerto mínima" maxlength="65" minlength="20">
+                <input type="url" placeholder="URL da imagem" maxlength="65" minlength="20">
+                <input type="text" placeholder="Descrição do nível" maxlength="65" minlength="20">
+            </article>
+
+            <article class="question_2">
+                <h3>Nível 2</h3>
+                <img src="./imagens/Vector (1).svg" alt="icon">
+            </article>
+
+            <article class="question_2">
+                <h3>Nível 3</h3>
+                <img src="./imagens/Vector (1).svg" alt="icon">
+            </article>
+
+            <button onclick="MoveToLastScreen ()">
+                <p>Finalizar Quizz</p>
+            </button>
+        </section>
+
+        <!--Tela3.4-->
+
+        <section class="tela_3-4 hidden">
+            <h2>Seu quizz está pronto!</h2>
+
+            <article class="last_screen">
+                <img class="img" src="./imagens/Rectangle 34.png">
+                <span>O quão Potterhead é você?</span>
+            </article>
+
+            <button onclick="">
+                <p>Acessar Quizz</p>
+            </button>
+            <button onclick="">
+                <p class="button_home">Voltar pra home</p>
+            </button>
+
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
 
 </body>
 
