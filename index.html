@@ -5,11 +5,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- * Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- * CSS -->
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- * Favicon -->
+    <link rel="icon" type="image/x-icon" href="imgs\favicon.ico">
+
     <title>BuzzQuizz</title>
+
 </head>
 
 <body>
+    <header class="header_page">
+        <span>BuzzQuizz</span>
+    </header>
 
+    <main class="screen_1">
+        <section class="create_quizz">
+            <span>Você não criou nenhum quizz ainda 😕</span>
+            <button>Criar Quizz</button>
+        </section>
+        <section class="all_quizzes">
+            <h1>Todos os Quizzes</h1>
+            <div class="container_imgs">
+                <!-- !Alimentado dinâmicamente pelo JS -->
+            </div>
+        </section>
+    </main>
+
+    <main class="screen_2">
+        <section class="your_quizzes">
+            <div class="container_icon_add_quizz">
+                <h1>Seus Quizzes</h1>
+                <ion-icon name="add-circle"></ion-icon>
+            </div>
+            <div class="container_imgs">
+                <div class="container_img"
+                    style="background-image: url('https://www.groundedreason.com/wp-content/uploads/2020/03/The_Simpsons-1024x543.png');">
+                    <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+                </div>
+                <div class="container_img"
+                    style="background-image: url('https://www.groundedreason.com/wp-content/uploads/2020/03/The_Simpsons-1024x543.png');">
+                    <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+                </div>
+            </div>
+        </section>
+        <section class="all_quizzes">
+            <div class="container_add_img">
+                <h1>Todos os Quizzes</h1>
+            </div>
+            <div class="container_imgs">
+                <!--  !Alimentado dinâmicamente pelo JS -->
+            </div>
+        </section>
+    </main>
+
+    <main class="quizzes_screen">
+        <header class="header_quizzes_questions"
+            style="background-image: url('https://www.groundedreason.com/wp-content/uploads/2020/03/The_Simpsons-1024x543.png')">
+            <span>Acerte os personagens corretos dos Simpsons e prove seu amor!</span>
+        </header>
+        <section class="container_question">
+            <div class=" question">
+            </div>
+            <div>
+                <div class="question_img"></div>
+                <div class="question_img"></div>
+                <div class="question_img"></div>
+                <div class="question_img"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- todo Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- todo Scripts -->
+    <script src="scripts.js"></script>
 </body>
 
 </html>
