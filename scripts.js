@@ -216,6 +216,11 @@ function voltarHomePage() {
     window.scrollTo(0,0);
 }
 
+function telaCriarQuizz() {
+    document.querySelector(".screen_1").classList.add("display-off");
+    document.querySelector(".main").classList.remove("display-off");
+    document.querySelector(".tela_3-1").classList.remove("hidden");
+}
 
 // !<-- Chamando Funções -->
 

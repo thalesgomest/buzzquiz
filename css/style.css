@@ -7,12 +7,13 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: auto;
 }
 
 * {
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
-
 
 /* ! Screen 1 - containeres List */
 
@@ -217,7 +218,7 @@ ion-icon {
 }
 
 .quizzes_screen .container_question:first-of-type {
-    margin-top: 24px;
+    margin-top: 235px;
 }
 
 .quizzes_screen .container_question:last-of-type {
@@ -415,7 +416,7 @@ ion-icon {
     }
 
     .quizzes_screen .container_question:first-of-type {
-        margin-top: 42px;
+        margin-top: 338px;
     }
 
     .quizz_questions {
@@ -519,11 +520,6 @@ ion-icon {
 
 /* !CSS Victor Hugo */
 
-* {
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
-
 body {
     background-color: #E5E5E5;
 }
@@ -576,7 +572,7 @@ header h1 {
 }
 
 .main section h2 {
-    height: 89px;
+    min-height: 89px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -648,21 +644,18 @@ section.tela_3-2 {
     display: flex;
     align-items: center;
     margin: auto auto;
-} 
+}
 
 /* !Tela 3.2 */
 
-section.tela_3-2 {
-    width: 100vw;
-    height: 1270px;
-}
 
-.main section.tela_3-2 h2{
+.main section.tela_3-2 h2 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 23px;
+
 }
 
 article.question_1 {
@@ -733,8 +726,9 @@ article.level_1 textarea::-webkit-scrollbar {
 }
 
 *:focus {
-    outline:none;
+    outline: none;
 }
+
 *:focus::placeholder {
     color: transparent
 }
@@ -769,7 +763,7 @@ article.level_1:first-child {
     letter-spacing: 0em;
     text-align: left;
     margin: 27px auto 0px 17px;
-} */
+}
 
 .tela_3-3 article.level_1:last-of-type {
     margin-bottom: 0px;
@@ -815,9 +809,10 @@ article.level_1:first-child {
 }
 
 .tela_3-4 p.button_home {
-    color:#BABABA
+    color: #BABABA
 }
- */
+
+
 /* !Esconder as telas */
 
 section.hidden {
