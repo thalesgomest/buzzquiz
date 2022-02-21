@@ -553,7 +553,7 @@ article.article_1_3-1 {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
-.main input {
+ input {
     height: 46px;
     width: 341px;
     border: 1px solid #D1D1D1;
@@ -666,12 +666,8 @@ section.tela_3-2 button {
 
 /* !Tela 3.3 */
 
-article.level_1 textarea {
+.level_1 textarea:last-of-type {
     height: 177px;
-}
-
-.level_1 input:last-of-type {
-    height: 170px;
     margin-bottom: 20px;
     width: 341px;
     overflow-y: scroll;
@@ -702,7 +698,7 @@ article.level_1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: white;
     margin-bottom: 28px;
 }

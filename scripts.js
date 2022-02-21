@@ -415,39 +415,33 @@ function validateQuestions(i) {
 
         let wrongUrlCheck = checkUrl(wrongUrl1) || checkUrl(wrongUrl2) || checkUrl(wrongUrl3);
 
-        allCheck = (textQuestionCheck && backgroundColorCheck && correctAnswerCheck && correctUrlCheck && wrongAnswersCheck && wrongUrlCheck === true)
+        allCheck = (textQuestionCheck && backgroundColorCheck && correctAnswerCheck && correctUrlCheck && wrongAnswersCheck && wrongUrlCheck === true);
+        return allCheck;
 }
 
 function checkQuestions () {
 
-    let validate = null;
+    let validate = true;
     
     for (let i = 0; i < numberOfQuestions; i++) {
         
-        validate = validateQuestions(i)
+        let validateAtual = validateQuestions(i)
+        validate = (validate && validateAtual)
     }  
 
     console.log(validate)
         
     if(allCheck && object.questions.length == numberOfQuestions && validate) {
             console.log("Testes ok", object.questions, numberOfQuestions);
-            printLevels()
+    printLevels()
             section2.classList.add("hidden")
             section3.classList.remove("hidden")
             window.scrollTo(0, 0);
-        }else {
+        } else {
             alert("Algo deu errado, tente novamente!")
+            object.questions = []
         }
-    
 }
-
-/*function MoveToLevels() {
-    /*section2.classList.add("hidden")
-    section3.classList.remove("hidden")
-
-    checkQuestions ()
-    
-}*/
 
 function printLevels() {
 
@@ -536,15 +530,6 @@ function validateLevels () {
             console.log(object)
 }
 
-/*function MoveToLastScreen() {
-
-    validateLevels ()
-
-    window.scrollTo(0, 0);
-
-    PostQuizz ()
-}*/
-
 function printLastScreen () {
 
         const section_last = document.querySelector(".tela_3-4");
@@ -577,14 +562,23 @@ function checkUrl(str){
 
 /* Funções para postar o Quizz criado */
 
+function cleanQuestion () {
+    for (let i = 0; i < numberOfQuestions; i++) {
+        object.questions[i].answers = object.questions[i].answers.filter(function(item){
+            return item.title !== "" && item.image !== ""
+        })
+    }
+}
+
 function PostQuizz () {
+    cleanQuestion ()
     const promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", object)
 
-    promise.then(postVálido)
+    promise.then(postValido)
     promise.catch(postInvalido)
 }
 
-function postVálido (response){
+function postValido (response){
     console.log(response.data)
     alert("deu tudo certo")
 
@@ -601,3 +595,16 @@ function saveLocalStorage (response) {
     const quizzSerializado = JSON.stringify(response);
     localStorage.setItem(response.id, quizzSerializado)
 }
+
+function loadLocalStorage () {
+    for (let i = 0; i < localStorage.length; i++ ) {
+        object.push(loadLocalStorage.getItem(localStorage.key(i)))
+    }
+}
+
+loadLocalStorage.setItem("none", "joão");
+loadLocalStorage.setItem("nome", "Carlos")
+
+const pessoa = localStorage.setItem("nome")
+console.log(pessoa)
+
