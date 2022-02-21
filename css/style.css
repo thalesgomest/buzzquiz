@@ -158,7 +158,7 @@ body {
     margin-bottom: 0px;
 }
 
-ion-icon {
+.add_quizz_icon {
     width: 31px;
     height: 30px;
     color: #EC362D
@@ -504,26 +504,12 @@ ion-icon {
 
 }
 
-/* ! Other classes */
-
-.display-off {
-    display: none;
-}
-
-.opacity {
-    opacity: 0.3;
-}
-
-.no_click {
-    pointer-events: none;
-}
-
 /* !CSS Victor Hugo */
+
 
 .main {
     height: 100vh;
     width: 100vw;
-    margin-top: 56px;
 }
 
 /* ! Tela 3.1 */
@@ -618,10 +604,8 @@ section.tela_3-2 {
     display: flex;
     align-items: center;
     margin: auto auto;
+    margin-top: 75px;
 }
-
-/* !Tela 3.2 */
-
 
 .main section.tela_3-2 h2 {
     font-family: Roboto;
@@ -629,7 +613,7 @@ section.tela_3-2 {
     font-weight: bold;
     font-size: 20px;
     line-height: 23px;
-
+    height: 89px;
 }
 
 article.question_1 {
@@ -745,6 +729,10 @@ article.level_1:first-child {
 
 /*! Tela 3.4 */
 
+section.hidden {
+    display: none;
+}
+
 .tela_3-4 section {
     width: 375px;
     height: 749px;
@@ -786,12 +774,7 @@ article.level_1:first-child {
     color: #BABABA
 }
 
-
 /* !Esconder as telas */
-
-section.hidden {
-    display: none;
-}
 
 .inside {
     width: 375px;
@@ -823,4 +806,18 @@ section.hidden {
 
 .escondido {
     display: none;
+}
+
+/* ! Other classes */
+
+.display-off {
+    display: none;
+}
+
+.opacity {
+    opacity: 0.3;
+}
+
+.no_click {
+    pointer-events: none;
 }

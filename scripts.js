@@ -447,7 +447,6 @@ function checkQuestions () {
 
     checkQuestions ()
     
-    
 }*/
 
 function printLevels() {
