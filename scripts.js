@@ -35,21 +35,47 @@ function renderizarMeusQuizzes(meuquizz) {
     let id = (meuquizz.id).toString()
     let image = meuquizz.background_image
     let myQuizzesScreen2 = document.querySelector(".screen_2 .your_quizzes .container_imgs")
-    myQuizzesScreen2.innerHTML += `<div class="container_img"
+    myQuizzesScreen2.innerHTML += `<div class="container_img" data-identifier="quizz-card"
                     style="background-image: url('${image}');" onclick="acessarQuizz(${id})">
                     <span>${title}</span>
                 </div>`
 
 }
 
+function acessarQuizzCriado() {
+    let myQuizzes = localStorage.getItem("meusQuizzes");
+    let objetoMeusQuizzes = JSON.parse(myQuizzes);
+    let id = objetoMeusQuizzes[objetoMeusQuizzes.length -1].id;
+    let finalScreen = document.querySelector(".tela_3-4")
+    let quizzScreen = document.querySelector(".screen_2");
+    quizzScreen.classList.toggle("display-off")
+    finalScreen.classList.toggle("hidden");
+    acessarQuizz(id);
+}
+
 function renderizarQuizz(quizz) {
-    let titleQuizz = quizz.title;
-    let coverQuizz = quizz.image;
-    let idQuizz = (quizz.id).toString()
-    let allQuizzesScreen1 = document.querySelector(".screen_1 .container_imgs")
-    let allQuizzesScreen2 = document.querySelector(".screen_2 .all_quizzes .container_imgs")
-    allQuizzesScreen1.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
-    allQuizzesScreen2.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
+    const myQuizzes = localStorage.getItem("meusQuizzes");
+    const objetoMeusQuizzes = JSON.parse(myQuizzes);
+    let MeusIds = []
+    for (let i = 0; i < objetoMeusQuizzes.length; i++) {
+        let idquizz = objetoMeusQuizzes[i].id
+        MeusIds.push(idquizz)
+    }
+
+    let ID = (quizz.id)
+
+    function testeIDS(element) {
+            return element !== ID;
+}
+    if (MeusIds.every(testeIDS)) {
+            let titleQuizz = quizz.title;
+            let coverQuizz = quizz.image;
+            let idQuizz = (quizz.id).toString()
+            let allQuizzesScreen1 = document.querySelector(".screen_1 .container_imgs")
+            let allQuizzesScreen2 = document.querySelector(".screen_2 .all_quizzes .container_imgs")
+            allQuizzesScreen1.innerHTML += `<div class="container_img" data-identifier="quizz-card" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
+            allQuizzesScreen2.innerHTML += `<div class="container_img" data-identifier="quizz-card" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
+    }
 
 }
 
@@ -86,7 +112,7 @@ function mostrarTelaQuizz(quizzData) {
         let titleQuestion = questions[i].title;
         let backgroundColorQuestion = questions[i].color;
         quizzScreen.innerHTML += `<section class="container_question">
-            <div class="quizz_questions" style="background-color:${backgroundColorQuestion}">
+            <div class="quizz_questions" data-identifier="question" style="background-color:${backgroundColorQuestion}">
                 <span>${titleQuestion}</span>
             </div>
             <div class="options_question">
@@ -102,7 +128,7 @@ function mostrarTelaQuizz(quizzData) {
             let imgAnswer = answers[i].image;
             let correctAnswer = (answers[i].isCorrectAnswer).toString();
             let optionQuestion = document.querySelectorAll(".container_question .options_question")
-            optionQuestion[optionQuestion.length - 1].innerHTML += `<div class="question_img ${correctAnswer}" onclick="destacarRespostaEscolhida(this)">
+            optionQuestion[optionQuestion.length - 1].innerHTML += `<div class="question_img ${correctAnswer}" data-identifier="answer" onclick="destacarRespostaEscolhida(this)">
                     <div class="option_question_img" style="background-image:
                         url('${imgAnswer}')">
                     </div>
@@ -157,7 +183,7 @@ function renderizarResultados() {
             let textNivel = niveis[i].text;
             let imagemNivel = niveis[i].image;
             let quizzScreen = document.querySelector(".quizzes_screen");
-            quizzScreen.innerHTML += `<section class="result_quizz">
+            quizzScreen.innerHTML += `<section class="result_quizz" data-identifier="quizz-result">
                                         <div class="hit_percentage">
                                             <span>${porcentagemAcertos}% de acerto: ${titleNivel}</span>
                                         </div>
@@ -240,12 +266,14 @@ function voltarHomePage() {
         let quizzScreen = document.querySelector(".quizzes_screen");
         quizzScreen.classList.toggle("display-off")
         homePage.classList.toggle("display-off");
+        window.location.reload()
         window.scrollTo(0,0);
     } else if (localStorage.length !== 0) {
         let homePage2 = document.querySelector(".screen_2")
         let quizzScreen = document.querySelector(".quizzes_screen");
         quizzScreen.classList.toggle("display-off")
         homePage2.classList.toggle("display-off");
+        window.location.reload();
         window.scrollTo(0,0);
     }
     
@@ -339,12 +367,12 @@ function printQuestions() {
     for (let i = 1; i <= numberOfQuestions; i++) {
         
         section_questions.innerHTML += `
-        <div class= "inside" onclick ="openDivQuestions(${i})">
+        <div class= "inside" data-identifier="expand" onclick ="openDivQuestions(${i})">
             <h2>Pergunta ${i}</h2>
             <ion-icon class="opneDiv" name="create-outline"></ion-icon>
         </div> 
         <div class="question${i} escondido">
-            <article class="question_1">
+            <article class="question_1" data-identifier="question">
                 <input id="${i}-question" type="text" placeholder="Texto da pergunta">
                 <input id="${i}-color" type="text" placeholder="Cor de fundo da pergunta">
 
@@ -501,12 +529,12 @@ function printLevels() {
 
         const section_levels = document.querySelector(".tela_3-3");
         section_levels.innerHTML += `
-        <div class= "inside" onclick ="openDivLevels(${i})">
+        <div class= "inside" data-identifier="expand" onclick ="openDivLevels(${i})">
             <h2>Nível ${i}</h2>
             <ion-icon class="opneDiv" name="create-outline"></ion-icon>
         </div> 
         <div class = "levels${i} escondido">
-        <article class="level_1">
+        <article class="level_1" data-identifier="level">
             <input id="${i}-Tittle_level" type="text" placeholder="Título do nível" minlength="10">
             <input id="${i}-minimum_Hits" type="number" placeholder="% de acerto mínima" min="0" max="100">
             <input id="${i}-levelUrl" type="url" placeholder="URL da imagem">
@@ -589,7 +617,7 @@ function printLastScreen () {
                                         <span>${quizzTittle}</span>
                                     </article>
                                     <button>
-                                        <p>Acessar Quizz</p>
+                                        <p onclick="acessarQuizzCriado()">Acessar Quizz</p>
                                     </button>
                                     <button onclick= "backScreen()">
                                         <p class="button_home">Voltar pra home</p>
@@ -661,11 +689,16 @@ function backScreen () {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_2").classList.remove("display-off")
         window.scrollTo(0,0);
+<<<<<<< HEAD
         window.location.reload()
+=======
+        window.location.reload();
+>>>>>>> 23c8f58325f82cbcb0c14f9b02f8b0e11b9b6d23
     } else if (localStorage.length === 0) {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_1").classList.remove("display-off")
         window.scrollTo(0,0);
+        window.location.reload();
     }
 }
 

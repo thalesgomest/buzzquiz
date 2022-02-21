@@ -30,11 +30,11 @@
     <main class="screen_1 display-off">
         <section class="create_quizz">
             <span>Você não criou nenhum quizz ainda 😕</span>
-            <button onclick="telaCriarQuizz()">Criar Quizz</button>
+            <button data-identifier="create-quizz" onclick="telaCriarQuizz()">Criar Quizz</button>
         </section>
         <section class="all_quizzes">
             <h1>Todos os Quizzes</h1>
-            <div class="container_imgs">
+            <div class="container_imgs" data-identifier="general-quizzes">
                 <!-- !Alimentado dinâmicamente pelo JS -->
             </div>
         </section>
@@ -44,9 +44,10 @@
         <section class="your_quizzes">
             <div class="container_icon_add_quizz">
                 <h1>Seus Quizzes</h1>
-                <ion-icon class="add_quizz_icon" name="add-circle" onclick="telaCriarQuizz()"></ion-icon>
+                <ion-icon class="add_quizz_icon" data-identifier="create-quizz" name="add-circle"
+                    onclick="telaCriarQuizz()"></ion-icon>
             </div>
-            <div class="container_imgs">
+            <div class="container_imgs" data-identifier="user-quizzes">
                 <!--  !Alimentado dinâmicamente pelo JS -->
             </div>
         </section>
@@ -54,7 +55,7 @@
             <div class="container_add_img">
                 <h1>Todos os Quizzes</h1>
             </div>
-            <div class="container_imgs">
+            <div class="container_imgs" data-identifier="general-quizzes">
                 <!--  !Alimentado dinâmicamente pelo JS -->
             </div>
         </section>
