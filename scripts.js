@@ -23,6 +23,23 @@ function renderizarQuizzes(quizzes) {
     const allQuizzes = quizzes.data;
     console.log(allQuizzes)
     allQuizzes.forEach(renderizarQuizz);
+    
+    const myQuizzes = localStorage.getItem("meusQuizzes");
+    const objetoMeusQuizzes = JSON.parse(myQuizzes);
+    console.log(objetoMeusQuizzes)
+    objetoMeusQuizzes.forEach(renderizarMeusQuizzes)
+}
+
+function renderizarMeusQuizzes(meuquizz) {
+    let title = meuquizz.title
+    let id = (meuquizz.id).toString()
+    let image = meuquizz.background_image
+    let myQuizzesScreen2 = document.querySelector(".screen_2 .your_quizzes .container_imgs")
+    myQuizzesScreen2.innerHTML += `<div class="container_img"
+                    style="background-image: url('${image}');" onclick="acessarQuizz(${id})">
+                    <span>${title}</span>
+                </div>`
+
 }
 
 function renderizarQuizz(quizz) {
@@ -33,6 +50,7 @@ function renderizarQuizz(quizz) {
     let allQuizzesScreen2 = document.querySelector(".screen_2 .all_quizzes .container_imgs")
     allQuizzesScreen1.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
     allQuizzesScreen2.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
+
 }
 
 function acessarQuizz(idQuizz) {
@@ -626,19 +644,17 @@ function postInvalido (erro) {
 }
 
 function saveLocalStorage (response) {
-    const quizzSerializado = JSON.stringify(response);
-    localStorage.setItem(response.id, quizzSerializado)
+    var meusQuizzes = JSON.parse(localStorage.getItem('meusQuizzes') || '[]');
+
+    meusQuizzes.push({
+        id: response.data.id,
+        title: response.data.title,
+        background_image: response.data.image
+    });
+
+      // Salva a lista alterada
+    localStorage.setItem("meusQuizzes", JSON.stringify(meusQuizzes));
 }
 
-function loadLocalStorage () {
-    for (let i = 0; i < localStorage.length; i++ ) {
-        object.push(loadLocalStorage.getItem(localStorage.key(i)))
-    }
-}
 
-loadLocalStorage.setItem("none", "joão");
-loadLocalStorage.setItem("nome", "Carlos")
-
-const pessoa = localStorage.setItem("nome")
-console.log(pessoa)
 
