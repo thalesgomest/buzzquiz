@@ -301,34 +301,31 @@ header h1 {
 .main {
     height: 100vh;
     width: 100vw;
-    margin-top: 69px;
+    margin-top: 56px;
 }
 
 /* ! Tela 3.1 */
 
-section {
+main section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tela_3-1 {
+.tela_3-1:nth {
     width: 100%;
     height: 598px;
 }
 
-section h2 {
+main section h2 {
     height: 89px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Roboto;
     font-size: 20px;
-    font-style: normal;
     font-weight: 700;
     line-height: 23px;
-    letter-spacing: 0em;
-    text-align: left;
 }
 
 article.article_1_3-1 {
@@ -359,6 +356,7 @@ input {
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
+    word-break: break-word;
 }
 
 .main button {
@@ -369,7 +367,7 @@ input {
     border-radius: 15px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
     display: flex;
-    margin: 29px auto 60px auto
+    margin: 29px auto 60px auto;
 }
 
 .main button p {
@@ -381,51 +379,67 @@ input {
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
-    margin: auto auto
+    margin: auto auto;
 }
 
 /* !Tela 3.2 */
 
 section.tela_3-2 {
-    width: 100vw;
-    height: 1270px;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
 }
 
-.tela_3-2 .questions {
-    width: 375px;
-    height: 1019px;
+main section.tela_3-2 h2{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
 }
-
-.main img {
-    width: 24px;
-    position: absolute;
-    right: 0;
-    margin-top: 26px;
-    margin-right: 25px;
-}
-
 
 article.question_1 {
     width: 375px;
-    height: 865px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    height: 825px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: white;
+    margin-top: 28px;
+    margin-bottom: 28px;
 }
 
-input:nth-child(10) {
+article.question_1:first-child {
+    margin-top: -28px;
+}
+
+section.tela_3-2 input {
+    margin-top: 13px;
+}
+
+section.tela_3-2 input:nth-child(11) {
     margin-top: 18px;
 }
 
-input:nth-child(12) {
-    margin-top: 18px;
+section.tela_3-2 input:nth-child(12) {
+    margin-bottom: 18px;
 }
 
 input:nth-child(13) {
     margin-bottom: 18px;
+}
+
+section.tela_3-2 button {
+    width: 324px;
+    height: 54px;
+    background-color: #EC362D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    margin: 29px auto 60px auto;
 }
 
 .question_2 {
@@ -434,18 +448,41 @@ input:nth-child(13) {
     width: 375px;
     height: 74px;
     display: flex;
-    position: relative;
+    justify-content: space-between;
 }
 
+.main img {
+    width: 24px;
+    margin-right: 25px;
+}
 
 /* !Tela 3.3 */
 
-.level_1 input:last-of-type {
-    height: 170px;
+article.level_1 textarea {
+    height: 177px;
     margin-bottom: 20px;
+    width: 341px;
+    overflow-y: scroll;
+    resize: none;
+    border: 1px solid #D1D1D1;
 }
 
-.level_1 {
+article.level_1 textarea::-webkit-scrollbar {
+    display: none;
+}
+
+*:focus {
+    outline:none;
+}
+*:focus::placeholder {
+    color: transparent
+}
+
+article.level_1 textarea::placeholder {
+    padding-top: 20px;
+}
+
+article.level_1 {
     width: 375px;
     height: 439px;
     background-color: white;
@@ -454,6 +491,11 @@ input:nth-child(13) {
     align-items: center;
     justify-content: space-between;
     background-color: white;
+    margin-bottom: 28px;
+}
+
+article.level_1:first-child {
+    margin-top: -28px;
 }
 
 .main h3 {
@@ -468,6 +510,10 @@ input:nth-child(13) {
     margin: 27px auto 0px 17px;
 }
 
+.tela_3-3 article.level_1:last-of-type {
+    margin-bottom: 0px;
+}
+
 /*! Tela 3.4 */
 
 .tela_3-4 section {
@@ -475,39 +521,29 @@ input:nth-child(13) {
     height: 749px;
 }
 
-.tela_3-4 article {
+.tela_3-4 article.last_screen {
     width: 340px;
     height: 181px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: aqua;
-    position: relative;
+    justify-content: flex-end;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    word-wrap: break-word;
 }
 
-.tela_3-4 img {
-    width: 340px;
-    height: 181px;
-    position: absolute;
-    margin: auto auto;
-}
-
-.tela_3-4 span {
-    position: absolute;
+.tela_3-4 article.last_screen span {
     font-family: Roboto;
     font-size: 19px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
     color: white;
-    bottom: 0;
-    width: 309px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    margin-left: 17px;
+    padding-left: 17px;
+    padding-bottom: 17.5px;
 }
 
 .tela_3-4 button:last-of-type {
@@ -517,12 +553,44 @@ input:nth-child(13) {
     box-shadow: none;
 }
 
-.button_home {
-    color: #818181;
+.tela_3-4 p.button_home {
+    color:#BABABA
 }
 
 /* !Esconder as telas */
 
 section.hidden {
+    display: none;
+}
+
+.inside{
+    width: 375px;
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.opneDiv{
+    margin-right: 26px;
+    width: 26px;
+    height: 26px;
+}
+
+.inside h2 {
+    align-items: center;
+    color: #000000;
+    margin-left: 17px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+}
+
+.escondido {
     display: none;
 }
