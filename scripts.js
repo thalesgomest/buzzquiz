@@ -689,11 +689,7 @@ function backScreen () {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_2").classList.remove("display-off")
         window.scrollTo(0,0);
-<<<<<<< HEAD
-        window.location.reload()
-=======
         window.location.reload();
->>>>>>> 23c8f58325f82cbcb0c14f9b02f8b0e11b9b6d23
     } else if (localStorage.length === 0) {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_1").classList.remove("display-off")
