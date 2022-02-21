@@ -643,8 +643,6 @@ function PostQuizz () {
 }
 
 function postValido (response){
-    alert("deu tudo certo")
-
     saveLocalStorage(response)
 }
 
