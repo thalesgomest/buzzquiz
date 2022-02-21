@@ -218,7 +218,7 @@ ion-icon {
 }
 
 .quizzes_screen .container_question:first-of-type {
-    margin-top: 235px;
+    margin-top: 24px;
 }
 
 .quizzes_screen .container_question:last-of-type {
@@ -416,7 +416,7 @@ ion-icon {
     }
 
     .quizzes_screen .container_question:first-of-type {
-        margin-top: 338px;
+        margin-top: 42px;
     }
 
     .quizz_questions {
@@ -519,32 +519,6 @@ ion-icon {
 }
 
 /* !CSS Victor Hugo */
-
-body {
-    background-color: #E5E5E5;
-}
-
-header {
-    width: 100%;
-    height: 69px;
-    background: #EC362D;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-header h1 {
-    color: #ffffff;
-    font-family: Roboto;
-    font-size: 37px;
-    font-weight: 700;
-    line-height: 43.36px;
-}
 
 .main {
     height: 100vh;
