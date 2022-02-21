@@ -591,7 +591,7 @@ function printLastScreen () {
                                     <button>
                                         <p>Acessar Quizz</p>
                                     </button>
-                                    <button>
+                                    <button onclick= "backScreen()">
                                         <p class="button_home">Voltar pra home</p>
                                     </button>`
 }
@@ -656,5 +656,15 @@ function saveLocalStorage (response) {
     localStorage.setItem("meusQuizzes", JSON.stringify(meusQuizzes));
 }
 
-
+function backScreen () {
+    if (localStorage.length !== 0) {
+        document.querySelector(".tela_3-4").classList.add("hidden")
+        document.querySelector(".screen_2").classList.remove("display-off")
+        window.scrollTo(0,0);
+    } else if (localStorage.length === 0) {
+        document.querySelector(".tela_3-4").classList.add("hidden")
+        document.querySelector(".screen_1").classList.remove("display-off")
+        window.scrollTo(0,0);
+    }
+}
 
