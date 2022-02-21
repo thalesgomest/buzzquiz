@@ -539,7 +539,7 @@ function printLastScreen () {
                                     <button>
                                         <p>Acessar Quizz</p>
                                     </button>
-                                    <button>
+                                    <button onclick= "backScreen()">
                                         <p class="button_home">Voltar pra home</p>
                                     </button>`
 }
@@ -592,19 +592,27 @@ function postInvalido (erro) {
 }
 
 function saveLocalStorage (response) {
-    const quizzSerializado = JSON.stringify(response);
-    localStorage.setItem(response.id, quizzSerializado)
+    var meusQuizzes = JSON.parse(localStorage.getItem('meusQuizzes') || '[]');
+
+    meusQuizzes.push({
+        id: response.data.id,
+        title: response.data.title,
+        background_image: response.data.image
+    });
+
+      // Salva a lista alterada
+    localStorage.setItem("meusQuizzes", JSON.stringify(meusQuizzes));
 }
 
-function loadLocalStorage () {
-    for (let i = 0; i < localStorage.length; i++ ) {
-        object.push(loadLocalStorage.getItem(localStorage.key(i)))
+function backScreen () {
+    if (localStorage.length !== 0) {
+        document.querySelector(".tela_3-4").classList.add("hidden")
+        document.querySelector(".screen_2").classList.remove("display-off")
+        window.scrollTo(0,0);
+    } else if (localStorage.length === 0) {
+        document.querySelector(".tela_3-4").classList.add("hidden")
+        document.querySelector(".screen_1").classList.remove("display-off")
+        window.scrollTo(0,0);
     }
 }
-
-loadLocalStorage.setItem("none", "joão");
-loadLocalStorage.setItem("nome", "Carlos")
-
-const pessoa = localStorage.setItem("nome")
-console.log(pessoa)
 
