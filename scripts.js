@@ -21,12 +21,10 @@ function obterQuizzes() {
 
 function renderizarQuizzes(quizzes) {
     const allQuizzes = quizzes.data;
-    console.log(allQuizzes)
     allQuizzes.forEach(renderizarQuizz);
     
     const myQuizzes = localStorage.getItem("meusQuizzes");
     const objetoMeusQuizzes = JSON.parse(myQuizzes);
-    console.log(objetoMeusQuizzes)
     objetoMeusQuizzes.forEach(renderizarMeusQuizzes)
 }
 
@@ -57,6 +55,7 @@ function renderizarQuizz(quizz) {
     const myQuizzes = localStorage.getItem("meusQuizzes");
     const objetoMeusQuizzes = JSON.parse(myQuizzes);
     let MeusIds = []
+    if(objetoMeusQuizzes !== null)
     for (let i = 0; i < objetoMeusQuizzes.length; i++) {
         let idquizz = objetoMeusQuizzes[i].id
         MeusIds.push(idquizz)
@@ -67,7 +66,7 @@ function renderizarQuizz(quizz) {
     function testeIDS(element) {
             return element !== ID;
 }
-    if (MeusIds.every(testeIDS)) {
+    if (MeusIds.every(testeIDS) || localStorage === []) {
             let titleQuizz = quizz.title;
             let coverQuizz = quizz.image;
             let idQuizz = (quizz.id).toString()
@@ -88,7 +87,7 @@ function acessarQuizz(idQuizz) {
 
 function mostrarTelaQuizz(quizzData) {
     let quizzScreen = document.querySelector(".quizzes_screen");
-    if (localStorage.length === 0) {
+    if (localStorage.length === 0 || localStorage === []) {
         let screen1 = document.querySelector(".screen_1")
         let quizzScreen = document.querySelector(".quizzes_screen");
         quizzScreen.classList.toggle("display-off")
@@ -107,7 +106,6 @@ function mostrarTelaQuizz(quizzData) {
     quizzScreen.innerHTML += `<header class="header_quizzes_questions" style="background-image: url('${imgHeaderQuestion}')"><span>${titleHeaderQuestion}</span></header>`
     let questions = data.questions;
     numeroQuestoes = questions.length
-    console.log(numeroQuestoes)
     for (let i = 0; i < questions.length; i++) {
         let titleQuestion = questions[i].title;
         let backgroundColorQuestion = questions[i].color;
@@ -140,12 +138,10 @@ function mostrarTelaQuizz(quizzData) {
 
 function destacarRespostaEscolhida(resposta) {
     questoesRespondidas += 1;
-    console.log(questoesRespondidas);
     resposta.classList.add("selected")
     if (resposta.classList.contains("true")) {
         acertos += 1
     }
-    console.log(acertos)
     let divRespostaEscolhida = resposta.parentNode
     let Respostas = divRespostaEscolhida.querySelectorAll(".question_img");
     for (let i = 0; i < Respostas.length; i++) {
@@ -243,9 +239,6 @@ function reiniciarQuizz() {
     let restartButton = document.querySelector(".quizzes_screen button");
     let homePageButton = document.querySelector(".quizzes_screen .back_home");
 
-    console.log(resultQuizz);
-    console.log(restartButton);
-    console.log(homePageButton);
     resultQuizz.remove();
     restartButton.remove();
     homePageButton.remove();
@@ -261,7 +254,7 @@ function voltarHomePage() {
 
 
     let quizzScreen = document.querySelector(".quizzes_screen");
-    if (localStorage.length === 0) {
+    if (localStorage.length === 0 || localStorage === []) {
         let homePage = document.querySelector(".screen_1");
         let quizzScreen = document.querySelector(".quizzes_screen");
         quizzScreen.classList.toggle("display-off")
@@ -336,13 +329,10 @@ function validateSimpleQuestions () {
     numberOfLevels = document.querySelector("#input_4").value
 
     let levelsAndQuestionsOk = (numberOfLevels >= 2 && numberOfQuestions >= 3) 
-    console.log(levelsAndQuestionsOk)
     
     let titleOk = (quizzTittle.length > 20 && quizzTittle.length < 65) 
-    console.log(titleOk)
 
     let UrlImageOk = checkUrl(UrlImage) 
-    console.log(UrlImageOk)
 
     if (levelsAndQuestionsOk && titleOk && UrlImageOk) {
         
@@ -477,7 +467,6 @@ function validateQuestions(i) {
         objectWrongAnswer3.image = wrongUrl3
         objectQuestions.answers.push(objectWrongAnswer3)
 
-        console.log(objectQuestions)
 
         object.questions.push(objectQuestions)
 
@@ -509,10 +498,8 @@ function checkQuestions () {
         validate = (validate && validateAtual)
     }  
 
-    console.log(validate)
         
     if(allCheck && object.questions.length == numberOfQuestions && validate) {
-            console.log("Testes ok", object.questions, numberOfQuestions);
             printLevels()
             section2.classList.add("hidden")
             section3.classList.remove("hidden")
@@ -590,7 +577,6 @@ function validateLevels () {
         let LevelDescriptionCheck = (LevelDescription.length > 30 && LevelDescription !== "");
 
         if (LevelTittleCheck && MinimunHitsCheck && levelUrlCheck && LevelDescriptionCheck ) {
-            console.log("Primeiros testes ok")
         } else {
             alert("Algum dado está inválido, tente novamente!")
             break
@@ -600,14 +586,12 @@ function validateLevels () {
         if (parseInt(document.getElementById("1-minimum_Hits").value) !== 0) {
             alert("O nivel 1 deve ser igual a 0 e os demais em ordem crescente de valor")
         } else {
-            alert("OK")
             printLastScreen()
             section3.classList.add("hidden")
             section4.classList.remove("hidden")
             window.scrollTo(0, 0);
             PostQuizz ()
         }
-            console.log(object)
 }
 
 function printLastScreen () {
@@ -659,7 +643,6 @@ function PostQuizz () {
 }
 
 function postValido (response){
-    console.log(response.data)
     alert("deu tudo certo")
 
     saveLocalStorage(response)
