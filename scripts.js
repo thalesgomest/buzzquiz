@@ -32,7 +32,7 @@ function renderizarQuizz(quizz) {
     let allQuizzesScreen1 = document.querySelector(".screen_1 .container_imgs")
     let allQuizzesScreen2 = document.querySelector(".screen_2 .all_quizzes .container_imgs")
     allQuizzesScreen1.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
-    allQuizzesScreen2.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');"><span>${titleQuizz}</span></div>`
+    allQuizzesScreen2.innerHTML += `<div class="container_img" style="background-image: url('${coverQuizz}');" onclick="acessarQuizz(${idQuizz})"><span>${titleQuizz}</span></div>`
 }
 
 function acessarQuizz(idQuizz) {
@@ -43,11 +43,20 @@ function acessarQuizz(idQuizz) {
 
 
 function mostrarTelaQuizz(quizzData) {
-    let screen1 = document.querySelector(".screen_1")
     let quizzScreen = document.querySelector(".quizzes_screen");
-    quizzScreen.classList.toggle("display-off")
-    screen1.classList.toggle("display-off");
-    window.scrollTo(0,0);
+    if (localStorage.length === 0) {
+        let screen1 = document.querySelector(".screen_1")
+        let quizzScreen = document.querySelector(".quizzes_screen");
+        quizzScreen.classList.toggle("display-off")
+        screen1.classList.toggle("display-off");
+        window.scrollTo(0,0);
+    } else if (localStorage.length !== 0) {
+        let screen2 = document.querySelector(".screen_2")
+        let quizzScreen = document.querySelector(".quizzes_screen");
+        quizzScreen.classList.toggle("display-off")
+        screen2.classList.toggle("display-off");
+        window.scrollTo(0,0);
+    }
     data = quizzData.data
     let imgHeaderQuestion = data.image;
     let titleHeaderQuestion = data.title;
@@ -205,10 +214,23 @@ function reiniciarQuizz() {
 
 
 function voltarHomePage() {
+
+
     let quizzScreen = document.querySelector(".quizzes_screen");
-    let homePage = document.querySelector(".screen_1");
-    quizzScreen.classList.toggle("display-off");
-    homePage.classList.toggle("display-off");
+    if (localStorage.length === 0) {
+        let homePage = document.querySelector(".screen_1");
+        let quizzScreen = document.querySelector(".quizzes_screen");
+        quizzScreen.classList.toggle("display-off")
+        homePage.classList.toggle("display-off");
+        window.scrollTo(0,0);
+    } else if (localStorage.length !== 0) {
+        let homePage2 = document.querySelector(".screen_2")
+        let quizzScreen = document.querySelector(".quizzes_screen");
+        quizzScreen.classList.toggle("display-off")
+        homePage2.classList.toggle("display-off");
+        window.scrollTo(0,0);
+    }
+    
     quizzScreen.innerHTML = "";
     questoesRespondidas = 0;
     acertos = 0;
@@ -217,12 +239,24 @@ function voltarHomePage() {
 }
 
 function telaCriarQuizz() {
+    if (localStorage.length ===0) {
     document.querySelector(".screen_1").classList.add("display-off");
     document.querySelector(".main").classList.remove("display-off");
     document.querySelector(".tela_3-1").classList.remove("hidden");
+} else if (localStorage.length !==0) {
+    document.querySelector(".screen_2").classList.add("display-off");
+    document.querySelector(".main").classList.remove("display-off");
+    document.querySelector(".tela_3-1").classList.remove("hidden");
+}
 }
 
 // !<-- Chamando Funções -->
+
+if (localStorage.length === 0) {
+    document.querySelector(".screen_1").classList.remove("display-off")
+} else {
+    document.querySelector(".screen_2").classList.remove("display-off")
+}
 
 obterQuizzes();
 
