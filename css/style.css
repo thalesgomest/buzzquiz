@@ -528,6 +528,10 @@ section.tela_3-2 button {
     border: 1px solid #D1D1D1;
 }
 
+article.level_1:first-child {
+    margin-bottom: 20px;
+}
+
 article.level_1 textarea::-webkit-scrollbar {
     display: none;
 }
@@ -802,6 +806,39 @@ section.hidden {
         margin-bottom: 85px;
     }
 
+    article.article_1_3-1 {
+        width: 600px;
+    }
+    
+    input {
+        width: 564px;
+    }
+    
+    section.tela_3-2 button {
+        width: 368px;
+    }
+    
+    article.question_1 {
+        width: 600px;
+    }
+    
+    .inside {
+        width: 600px;
+    }
+    
+    article.level_1{
+        width: 600px;
+    }
+    
+    .level_1 textarea:last-of-type {
+        width: 564px;
+    }
+    
+    .tela_3-4 article.last_screen {
+        width: 500px;
+        height: 266px;
+    }
+
 }
 
 .escondido {
@@ -821,3 +858,4 @@ section.hidden {
 .no_click {
     pointer-events: none;
 }
+

@@ -485,7 +485,7 @@ function checkQuestions () {
         
     if(allCheck && object.questions.length == numberOfQuestions && validate) {
             console.log("Testes ok", object.questions, numberOfQuestions);
-    printLevels()
+            printLevels()
             section2.classList.add("hidden")
             section3.classList.remove("hidden")
             window.scrollTo(0, 0);
@@ -508,7 +508,7 @@ function printLevels() {
         <div class = "levels${i} escondido">
         <article class="level_1">
             <input id="${i}-Tittle_level" type="text" placeholder="Título do nível" minlength="10">
-            <input id="${i}-minimum_Hits" type="number" placeholder="% de acerto mínima">
+            <input id="${i}-minimum_Hits" type="number" placeholder="% de acerto mínima" min="0" max="100">
             <input id="${i}-levelUrl" type="url" placeholder="URL da imagem">
             <textarea id="${i}-LevelDescription" wrap="hard" placeholder="Descrição do nível" minlength="30"></textarea>
         </article>
@@ -661,6 +661,7 @@ function backScreen () {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_2").classList.remove("display-off")
         window.scrollTo(0,0);
+        window.location.reload()
     } else if (localStorage.length === 0) {
         document.querySelector(".tela_3-4").classList.add("hidden")
         document.querySelector(".screen_1").classList.remove("display-off")
