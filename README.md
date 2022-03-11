@@ -66,7 +66,7 @@ allowed to create quizzes! We built the entire front-end of the application and 
 
 <br />[![Linkedin Badge](https://img.shields.io/badge/-victorhfonseca-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorhfonseca/)](https://www.linkedin.com/in/victorhfonseca/) 
 [![Gmail Badge](https://img.shields.io/badge/-Vvictor.h.fonseca@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:Vvictor.h.fonseca@gmail.com)](mailto:Vvictor.h.fonseca@gmail.com)
-[![Twitter Badge](https://img.shields.io/badge/-@@vvictorfonseca-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/@vvictorfonseca)](https://twitter.com/@vvictorfonseca)
+[![Twitter Badge](https://img.shields.io/badge/-@vvictorfonseca-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/@vvictorfonseca)](https://twitter.com/@vvictorfonseca)
 
 </div>
 
