@@ -24,6 +24,12 @@
 quiz system in HTML, CSS and JavaScript! We were responsible for developing both the quiz experience and the screens that
 allowed to create quizzes! We built the entire front-end of the application and use a API as the back-end</p>
 
+<!-- ### Mobile Site
+<div align="center">
+  <img width="500px" src="https://user-images.githubusercontent.com/97575616/157726794-8e44aa1c-fd7a-4d68-98f7-a9b78df41003.gif" alt="site-mobile">
+</div>
+ -->
+ 
 ### Status
 <!-- ![status-finished](https://user-images.githubusercontent.com/97575616/152926720-d042178b-24c0-4d6b-94fb-0ccbd3c082cc.svg) -->
 ![status-in-progress](https://user-images.githubusercontent.com/97575616/153774620-d6a0a615-9d38-4402-ae72-20c52f8bbd5c.svg)
