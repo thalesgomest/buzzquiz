@@ -50,7 +50,7 @@ allowed to create quizzes! We built the entire front-end of the application and 
 * **LAYOUT**
   - [x] Apply layout for mobile and Desktop 
 
-### Author
+### Authors
 ---
 <div align="center">
 <img width="200px" src="https://user-images.githubusercontent.com/97575616/157583676-812b2612-a644-4c18-be9c-61f633406f50.png" alt=""/>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
