@@ -100,6 +100,7 @@ function mostrarTelaQuizz(quizzData) {
         screen2.classList.toggle("display-off");
         window.scrollTo(0,0);
     }
+    
     data = quizzData.data
     let imgHeaderQuestion = data.image;
     let titleHeaderQuestion = data.title;
