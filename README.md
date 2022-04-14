@@ -18,6 +18,7 @@
 * [Status](#status)
 * [Requirements](#requirements)
 * [Author](#author)
+* [Mockup](#mockup)
 
 
 ## Project Description
@@ -35,11 +36,11 @@ allowed to create quizzes! We built the entire front-end of the application and 
 <!-- ![status-finished](https://user-images.githubusercontent.com/97575616/152926720-d042178b-24c0-4d6b-94fb-0ccbd3c082cc.svg) -->
 ![status-in-progress](https://user-images.githubusercontent.com/97575616/153774620-d6a0a615-9d38-4402-ae72-20c52f8bbd5c.svg)
 
-<!-- ### Mobile Site
+### Mockup
 <div align="center">
-  <img width="500px" src="" alt="gif_site">
+  <img width="100%" src="https://user-images.githubusercontent.com/97575616/163479664-51221e6a-6f57-41ca-ada0-6116794b4603.png" alt="mockup">
 </div>
- -->
+
 ## Requirements
 
 * **GENERAL**
